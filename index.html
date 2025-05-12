@@ -8,6 +8,12 @@
 <body>
 <style>
 
+html, body {
+   	overflow-x: clip;
+	overflow-y: clip;
+	cursor: url("cursor.png"), auto;
+}
+
 .canvas {
 	position: relative;
 	width: 100vw;
@@ -27,52 +33,132 @@
 	position: fixed;
 }
 
+.hyperlink {
+	position: fixed;
+}
+
+.hover-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.popup {
+	position: fixed;
+	display: none;
+}
+
+.playbutton {
+	position: float;
+	display: none;
+}
+
+.hover-wrapper:hover .popup {
+	display: inline
+}
+
+.hover-wrapper:hover .playbutton {
+	display: inline
+}
+
+
 </style>
 
 <div class="canvas">
-	
-	<!-- Header -->
-	<img class="img" src="phosphenica.png" 	style="width:900px; top: -10px; left: -10px">
 
-	<a href="https://en.wikipedia.org/wiki/Phosphene">
-	<div class="click" style="width: 575px; height: 170px; top: 50px; left: 40px"></div></a>
+<!-- Margin -->
 
-<!-- Fixed Parts -->
+	<div class="fixed" style="background-color: black; width: 100px; height: 100%; left: 0px; top: 0px"></div>
+
+<!-- Right Hand Menu -->
 	
 	<!-- Manifesto -->
-	<img class="fixed" src="manifesto.png" 	style="width:500px; right: 0px; top: 0px">
+	<div class="hover-wrapper">
+		<img class="fixed" src="manifestoicon.png" style="width: 100px; right: 20px; top: 20px">
 
-	<!-- Contact Info -->
-	<img class="fixed" src="contact.png" 	style="width:350px; top: 500px; right: 0px">
+		<img class="popup" src="manifestopopup.png" style="width: 250px; right: 120px; top: 50px">
 
-	<!-- IG Link -->
-	<a href="https://www.instagram.com/phosphenica/">
-	<div class="fixed" style="width: 260px; height: 30px; right: 100px; top: 500px">
-	</div></a>
+		<a href="https://phosphenica.uk/manifesto.png">
+			<div class="hyperlink" style="width: 100px; height: 80px; right: 20px; top: 15px"></div>
+		</a>
+	</div>
+
+	<!-- Contact -->
+	<div class="hover-wrapper">
+		<img class="fixed" src="contacticon.png" style="width:100px; right: 25px; top: 120px">
+
+		<img class="popup" src="contactpopup.png" style="width: 270px; right: 130px; top: 150px">
+
+		<a href="contact.html">
+			<div class="hyperlink" style="width: 100px; height: 80px; right: 20px; top: 120px"></div>
+		</a>
+	</div>
+
+	<!-- Instagram -->
+	<div class="hover-wrapper">
+		<img class="fixed" src="igicon.png" style="width:90px; height:100px;right: 25px; top: 220px">
+
+		<img class="popup" src="igpopup.png" style="width: 200px; right: 130px; top: 260px">
+
+		<a href="https://www.instagram.com/phosphenica/">
+			<div class="hyperlink" style="width: 100px; height: 100px; right: 20px; top: 220px"></div>
+		</a>
+	</div>
 
 	<!-- Strider Records -->
-	<a href="https://striderrecs.bandcamp.com/">
-	<img class="fixed" src="striderrecords.png" style="width:350px; top: 600px; right: 0px">
-	</a>
+	<div class="hover-wrapper">
+		<img class="fixed" src="strider.jpg" style="width: 150px; right: 0px; bottom: 0px">
+
+		<img class="popup" src="striderpopup.png" style="width: 200px; right: 100px; bottom: 270px">
+
+		<a href="https://striderrecs.bandcamp.com/">
+			<div class="hyperlink" style="width: 150px; height: 90px; right: 0px; bottom: 0px"></div>
+		</a>
+	</div>
+
+	<!-- Art -->
+		<img class="fixed" src="drawings/bluemonster.png" style="width: 200px; right: 0px; bottom: 93px">
 
 <!-- Page -->
 
-	<!-- 'Latest Films' -->
-	<img class="img" src="latestfilms.png" 	style="width:500px; left: 50px; top: 420px">
+	<!-- Header -->
+		<img class="img" src="phosphenica.png" 	style="width:800px; top: -10px; left: 92px">
 
+		<img class="img" src="motto.png" style="width: 500px; top: 250px; left: 430px">
+
+	<!-- 'Latest Films' -->
+		<img class="img" src="latestfilms.png" 	style="width:400px; left: 170px; top: 340px">
+
+	<div class="hover-wrapper">
 	<!-- Yellow Ends thumb -->
-	<a href="https://youtu.be/r-8LhRjmL04">
-	<img class="click" src="yellowendsthumb.png" 	style="width: 320px; height: 240; left: 80px; top: 	530px">
+		<a href="https://youtu.be/r-8LhRjmL04">
+			<img class="click" src="yellowendsthumb.png" style="width: 320px; height: 240px; left: 170px; top: 420px">
+		</a>
+
+	<!-- Thumb border -->
+		<img class="img" src="thumbborder.png" style="width: 320px; height: 240px; left: 170px; top: 420px">
+
+		
+		<img class="playbutton" src="jump.png" style="width: 100px; left: 200px; top 500px">
+		</div>
 
 	<!-- 'Yellow Ends' -->
-	<img class="img" src="yellowends.png" 	style="width:350px; left: 420px; top: 530px">
+		<img class="img" src="yellowends.png" style="width:350px; left: 530px; top: 430px">
 
 	<!-- Yellow Ends info -->
-	<img class="img" src="yellowendsinfo.png" 	style="width: 350px; top: 650px; left: 440px">
-
-
+		<img class="img" src="yellowendsinfo.png" style="width: 350px; top: 540px; left: 540px">
 
 </div>
-
 </body>
 </html>
+
+<!-- To Do List
+
+- Strider Records popup
+- Manifesto page
+- About page
+- Contact page
+- Play button to put over thumbnails
+- Home button + popup
+- custom cursor
+
+-->
