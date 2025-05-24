@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>PHOSPHENICA</title>
+  <link href="style.css" rel="stylesheet" />
+  <style>
+
+html {
+  overflow-x: clip;
+  background-image: url('bg1.gif');
+  background-size: cover;
+
+body {
+  width: 75%;
+  margin: 0 auto;
+  font-family: Cambria;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+}
+
+.header {
+  margin: 0 auto;
+  width: 70%;
+  padding: 0;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 1vh auto 0 auto;
+  text-align: center;
+}
+
+.menu li {
+  display: inline-block;
+  margin: 0 30px;
+}
+
+.menu a {
+  color: white;
+  font-size: 200%;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.thumbnail {
+  margin: 0 auto;
+  width: 100%;
+  padding: 6vh 0;
+  text-align: center;
+}
+
+p {
+  color: white;
+  font-size: 160%;
+  font-weight: bold;
+}
+
+.footer {
+  margin-bottom: 5vh;
+  text-align: center;
+  width: 100%;
+}
+  
+
+/* Remove margins on smaller screens */
+@media (max-width: 768px) {
+  body {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+  </style>
+</head>
+<body>
+	<div class="header">
+	  <img src="header.png" style="width: 100%;">
+	</div>
+
+	<ul class="menu">
+  		<li><a href="./index.html">FILMS</a></li>
+		<li><a href="./manifesto.html">MANIFESTO</a></li>
+		<li><a href="https://striderrecs.bandcamp.com/">STRIDER</a></li>
+		<li><a href="https://www.instagram.com/phosphenica/">INSTAGRAM</a></li>
+	</ul>
+
+	<div class="thumbnail">
+	  <img src="manifesto.png" style="width: 66%">
+	</div>
+
+	<div class="footer">
+	  <p>Enquiries: phosphenica@gmail.com</p>
+	</div>
+
+</body>
+</html>
