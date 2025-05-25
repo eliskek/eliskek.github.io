@@ -1,106 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>PHOSPHENICA</title>
-  <link href="style.css" rel="stylesheet" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Phosphenica</title>
   <style>
+    /* RESET & BASE STYLES */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-html {
-  overflow-x: clip;
-  overflow-y: clip;
-  background-image: url('bg3.gif');
-  background-size: cover;
+    body {
+      font-family: 'Helvetica Neue', Helvetica, sans-serif;
+      background-image: url('bg3.gif');
+      background-size: cover;
+      color: white;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* HEADER */
+    header {
+      text-align: center;
+      padding: 3vh 0;
+    }
+
+    header img {
+      width: 300px;
+      max-width: 80%;
+    }
+
+    /* NAVIGATION */
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      margin-top: 2vh;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    nav li {
+      font-size: 1.1rem;
+    }
+
+    /* MAIN SECTION */
+    main {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 5vh 2rem;
+    }
+
+    .film-feature {
+      text-align: center;
+      max-width: 300px;
+    }
+
+    .film-feature img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+
+    .film-feature h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 5vh 0;
+      font-size: 0.9rem;
+      color: white;
+    }
+
+    .film-gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4vh 2vw;
+  padding: 5vh 2rem;
+  justify-content: center;
 }
 
-body {
-  width: 75%;
-  margin: 0 auto;
-  font-family: Cambria;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.header {
-  margin: 0 auto;
-  width: 70%;
-  padding: 0;
-}
-
-.menu {
-  list-style: none;
-  padding: 0;
-  margin: 1vh auto 0 auto;
+.film {
   text-align: center;
-}
-
-.menu li {
-  display: inline-block;
-  margin: 0 30px;
-}
-
-.menu a {
-  color: white;
-  font-size: 200%;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.thumbnail {
+  max-width: 300px;
   margin: 0 auto;
+}
+
+.film img {
   width: 100%;
-  padding: 6vh 0;
-  text-align: center;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 1rem;
 }
 
-p {
-  color: white;
-  font-size: 150%;
-  font-weight: bold;
-  margin: 1vh auto;
-}
-
-.footer {
-  margin-bottom: 5vh;
-  text-align: center;
-  width: 100%;
-}
-  
-
-/* Remove margins on smaller screens */
-@media (max-width: 768px) {
-  body {
-    width: 100%;
-    margin: 0;
+/* Two columns on wider screens */
+@media (min-width: 700px) {
+  .film-gallery {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
+.film h2,
+.film p {
+  color: white;
+  font-family: Helvetica, sans-serif;
+  font-weight: bold;
+  margin: 0.3rem 0;
+  font-size: 1.2rem;
+}
+
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      nav ul {
+        gap: 15px;
+        font-size: 0.95rem;
+      }
+    }
   </style>
 </head>
 <body>
-	<div class="header">
-	  <img src="header.png" style="width: 100%;">
-	</div>
 
-	<ul class="menu">
-  		<li><a href="./index.html">FILMS</a></li>
-		<li><a href="./manifesto.html">MANIFESTO</a></li>
-		<li><a href="https://striderrecs.bandcamp.com/">STRIDER</a></li>
-		<li><a href="https://www.instagram.com/phosphenica/">INSTAGRAM</a></li>
-	</ul>
+  <header>
+    <img src="header.png" alt="Phosphenica logo" />
+  </header>
 
-	<div class="thumbnail">
-	  <a href="https://www.youtube.com/watch?v=r-8LhRjmL04">
-	  <img src="yellowendsthumb.png" style="width: 300px; border: solid white;">
-	  </a>
-	  <p>YELLOW ENDS<br>dir. Elis Knight</p>
-	</div>
+  <nav>
+    <ul>
+      <li><a href="./index.html">Films</a></li>
+      <li><a href="./manifesto.html">Manifesto</a></li>
+      <li><a href="https://striderrecs.bandcamp.com/">Music</a></li>
+      <li><a href="https://www.instagram.com/phosphenica/">Instagram</a></li>
+    </ul>
+  </nav>
 
-	<div class="footer">
-	  <p>Enquiries: phosphenica@gmail.com</p>
-	</div>
+  <main>
+  <section class="film-gallery" id="films">
+
+    <div class="film">
+      <a href="https://www.youtube.com/watch?v=r-8LhRjmL04">
+        <img src="yellowendsthumb.png" alt="Yellow Ends Thumbnail" />
+      </a>
+      <h2>Yellow Ends | 2025</h2>
+      <p>Directed by Elis Knight</p>
+    </div>
+
+    <div class="film">
+      <a href="https://www.youtube.com/watch?v=EXAMPLE">
+        <img src="yellowendsthumb.png" alt="Another Film Thumbnail" />
+      </a>
+      <h2>Another Film</h2>
+      <p>Directed by Another Director</p>
+    </div>
+
+    <!-- Add more .film blocks here as needed -->
+
+  </section>
+</main>
+
+
+
+  <footer>
+    <p>Enquiries: <a href="mailto:phosphenica@gmail.com">phosphenica@gmail.com</a></p>
+  </footer>
 
 </body>
 </html>
