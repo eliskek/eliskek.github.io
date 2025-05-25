@@ -94,10 +94,11 @@
 
     .film-gallery {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 4vh 2vw;
   padding: 5vh 2rem;
   justify-content: center;
+  align-items: start;
 }
 
 .film {
@@ -113,13 +114,6 @@
   margin-bottom: 1rem;
 }
 
-/* Two columns on wider screens */
-@media (min-width: 700px) {
-  .film-gallery {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 .film h2,
 .film p {
   color: white;
@@ -128,6 +122,7 @@
   margin: 0.3rem 0;
   font-size: 1.2rem;
 }
+
 
 
     /* RESPONSIVE */
