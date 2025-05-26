@@ -1,139 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Phosphenica</title>
-  <style>
-    /* RESET & BASE STYLES */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Phosphenica</title>
 
-    body {
-      font-family: 'Helvetica Neue', Helvetica, sans-serif;
-      background-image: url('bg3.gif');
-      background-size: cover;
-      color: white;
-      line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+<style>
 
-    a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
 
-    a:hover {
-      text-decoration: underline;
-    }
+body {
+	font-family: 'Helvetica Neue', Helvetica, sans-serif;
+	background-image: url('bg2.gif');
+	background-size: cover;
+	background-position: center;
+	color: white;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
 
-    /* HEADER */
-    header {
-      text-align: center;
-      padding: 3vh 0;
-    }
+a {
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+}
 
-    header img {
-      width: 300px;
-      max-width: 80%;
-    }
+a:hover {
+	text-decoration: underline;
+}
 
-    /* NAVIGATION */
-    nav ul {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      margin-top: 2vh;
-      gap: 30px;
-      flex-wrap: wrap;
-    }
+/* HEADER */
+header {
+	text-align: center;
+	padding: 3vh 0;
+}
 
-    nav li {
-      font-size: 1.1rem;
-    }
+header img {
+	width: 400px;
+	max-width: 80%;
+}
 
-    /* MAIN SECTION */
-    main {
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 5vh 2rem;
-    }
+/* MENU */
+nav ul {
+	display: flex;
+	justify-content: center;
+	list-style: none;
+	margin-top: 2vh;
+	gap: 30px;
+	flex-wrap: wrap;
+}
 
-    .film-feature {
-      text-align: center;
-      max-width: 300px;
-    }
+nav li {
+	font-size: 1.5rem;
+}
 
-    .film-feature img {
-      width: 100%;
-      height: auto;
-      border-radius: 6px;
-      margin-bottom: 1rem;
-    }
-
-    .film-feature h2 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 5vh 0;
-      font-size: 0.9rem;
-      color: white;
-    }
-
-    .film-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 4vh 2vw;
-  padding: 5vh 2rem;
-  justify-content: center;
-  align-items: start;
+/* FILM GALLERY */
+.film-gallery {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: 2vh 1vw;
+	justify-content: center;
+	padding: 5vh 2rem;
+	max-width: 700px;
+	margin: 0 auto;
 }
 
 .film {
-  text-align: center;
-  max-width: 300px;
-  margin: 0 auto;
+	max-width: 400px;
+	margin: 0 auto;
+	text-align: center;
 }
+
 
 .film img {
-  width: 100%;
-  height: auto;
-  border-radius: 6px;
-  margin-bottom: 1rem;
+	width: 100%;
+	height: auto;
+	border-radius: 6px;
+	margin-bottom: 1rem;
 }
 
-.film h2,
-.film p {
-  color: white;
-  font-family: Helvetica, sans-serif;
-  font-weight: bold;
-  margin: 0.3rem 0;
-  font-size: 1.2rem;
+.film h2 {
+	font-size: 1.2rem;
+	margin-bottom: 0.5rem;
 }
 
+/* ABOUT */
+.about {
+	max-width: 600px;
+      	margin: 1rem auto;
+      	padding: 0 2rem;
+      	text-align: center;
+      	font-size: 1.5rem;
+      	color: white;
+}
 
+/* FOOTER */
+footer {
+      	text-align: center;
+      	padding: 5vh 0;
+      	font-size: 0.9rem;
+      	color: white;
+}
 
-    /* RESPONSIVE */
-    @media (max-width: 600px) {
-      nav ul {
-        gap: 15px;
-        font-size: 0.95rem;
-      }
-    }
-  </style>
+/* RESPONSIVE */
+@media (max-width: 600px) {
+	nav ul {
+        	gap: 15px;
+        	font-size: 0.95rem;
+      	}
+}
+
+</style>
 </head>
+
 <body>
 
   <header>
@@ -150,22 +134,29 @@
   </nav>
 
   <main>
-  <section class="film-gallery" id="films">
+    <section class="film-gallery">
 
-    <div class="film">
-      <a href="https://www.youtube.com/watch?v=r-8LhRjmL04">
-        <img src="yellowendsthumb.png" alt="Yellow Ends Thumbnail" />
-      </a>
-      <h2>Yellow Ends | 2025</h2>
-      <p>Directed by Elis Knight</p>
-    </div>
+	<!-- Copy paste this div for more -->
+      <div class="film">
+        <a href="https://www.youtube.com/watch?v=r-8LhRjmL04">
+          <img src="yellowendsthumb.png" alt="Yellow Ends Thumbnail" />
+        </a>
+        <h2>Yellow Ends | 2025</h2>
+      </div>
 
-    <!-- Add more .film blocks here as needed -->
+    </section>
 
-  </section>
-</main>
-
-
+    <section class="about">
+      <p>
+        Phosphenica is an independent film production company specialising in experimental and non-fiction film.
+        As laid out in our <a href="./manifesto.html"><u>manifesto</u></a>, our focus is on utilising cinema as a medium
+        for truth and real social change.<br><br>
+        We envision a grassroots mode of film-making that challenges environmentally and socially destructive
+        industry norms.<br><br>
+        D.I.Y. everything. (even this website)
+      </p>
+    </section>
+  </main>
 
   <footer>
     <p>Enquiries: <a href="mailto:phosphenica@gmail.com">phosphenica@gmail.com</a></p>
