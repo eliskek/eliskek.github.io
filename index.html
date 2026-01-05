@@ -156,6 +156,43 @@ header::after {
       margin-top: 0.25rem;
     }
 
+/* --------- ABOUT TEXT --------- */
+.about {
+  margin-top: 4rem;
+  border-top: 1px solid var(--line);
+  padding-top: 2.5rem;
+}
+
+.about p {
+  max-width: 100%;
+  font-size: 1rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+.about-emphasis {
+  color: var(--text);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* --------- SCROLL REVEAL --------- */
+.about {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.9s ease-out,
+    transform 0.9s ease-out;
+  
+}
+
+.about.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
     /* --------- FOOTER --------- */
     footer {
       border-top: 1px solid var(--line);
@@ -212,7 +249,7 @@ header::after {
   <main class="container">
     <section class="film-grid">
 
-      <!-- FILM 01 -->
+	<!-- FILM 01 -->
       <a href="timefactory.html" class="film">
         <div class="film-thumb">
           <img src="timefactorythumb.JPG" alt="Film 01">
@@ -230,7 +267,35 @@ header::after {
         <div class="film-meta">2025 · 42s</div>
       </a>
 
+	<!-- MANIFESTO PANEL -->
+<a href="manifesto.pdf" class="film" target="_blank">
+  <div class="film-thumb">
+    <img src="manifestothumb.png" alt="Manifesto preview">
+  </div>
+  <div class="film-title">Manifesto</div>
+  <div class="film-meta">PDF</div>
+</a>
+
+
     </section>
+
+	<section class="about">
+  <p>
+    Phosphenica is an independent film organisation specialising in experimental
+    and non-fiction film. Our focus is on utilising cinema as a medium for truth
+    and real social change.
+  </p>
+
+  <p>
+    We envision a grassroots mode of film-making that challenges environmentally
+    and socially destructive industry norms.
+  </p>
+
+  <p class="about-emphasis">
+    D.I.Y. everything.
+  </p>
+</section>
+
   </main>
 
   <footer>
@@ -258,6 +323,23 @@ header::after {
   })();
 </script>
 
+<script>
+  const aboutSection = document.querySelector(".about");
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        aboutSection.classList.add("is-visible");
+        observer.disconnect(); // run once only
+      }
+    },
+    {
+      threshold: 0.2
+    }
+  );
+
+  observer.observe(aboutSection);
+</script>
 
 </body>
 </html>
