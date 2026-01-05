@@ -1,161 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Short Films</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Phosphenica</title>
+  <style>
+    /* --------- CSS RESET --------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<style>
+    /* --------- VARIABLES (DARK MODE) --------- */
+    :root {
+      --bg: #0f0f0f;
+      --panel: #151515;
+      --text: #e6e6e6;
+      --muted: #9a9a9a;
+      --line: #2a2a2a;
+      --hover: #ffffff;
+    }
 
-body {
-	font-family: Consolas;
-	color: white;
-	background-image: url('bg1.gif');
-	background-size: cover;
-	overflow: hidden;
-}
+    /* --------- BASE --------- */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.4;
+      letter-spacing: 0.01em;
+    }
 
-.pagepage {
-	
-	margin: 0 0;
-	padding: 0 0;
-}
-	
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-.page {
-	width: 100%;
-	margin: 0 0;
-	padding: 0 0;
-	min-height: 60vh;
-	display: flex;
-	flex-wrap: wrap;
-	
-}
+    img {
+      display: block;
+      max-width: 100%;
+    }
 
-a,p {
-	color: white;
-	text-decoration: none;
-	font-weight: bold;
-	padding: 0;
-	margin: 0;
-	
-}
+    /* --------- LAYOUT --------- */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem;
+    }
 
-a:hover {
-	text-decoration: underline;
-}
+    /* --------- HEADER --------- */
+    header {
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 3rem;
+      background: var(--bg);
+    }
 
-/* ------------------------------------------------- */
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-header {
-	padding: 3vh 0;
-	max-width: 100%;
-	margin: 0 auto;
-	text-align: center;
-}
+    .logo img {
+      height: 48px;
+      width: auto;
+      /* Optional: helps light logos sit better in dark mode */
+    }
 
-header img {
-	width: 50vw;}
+    nav a {
+      margin-left: 2rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
 
-/* ------------------------------------------------- */
+    nav a:hover {
+      color: var(--hover);
+    }
 
-.menu {
-	width: 20vw;
-}
+    /* --------- FILM GRID --------- */
+    .film-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 2.5rem;
+    }
 
-nav ul {
-	list-style: none;
-	margin: 1rem;
-	padding: 0 2rem;
-	gap: 30px;
-	font-size: 1.5rem;
-}
+    .film {
+      border-top: 1px solid var(--line);
+      padding-top: 1rem;
+    }
 
-li p {
-    margin: 0;
-    padding: 0;
-}
+    .film-thumb {
+      background: var(--panel);
+      overflow: hidden;
+    }
 
-/* ------------------------------------------------- */
+    .film-thumb img {
+      width: 100%;
+      transition: opacity 0.35s ease;
+    }
 
-.about {
-      	margin: 1rem;
-      	padding: 0 2rem;
-      	font-size: 1.5rem;
-      	color: white;
-	width: 70vw;
-}
+    .film:hover img {
+      opacity: 0.8;
+    }
 
-/* ------------------------------------------------- */
+    .film-title {
+      margin-top: 0.75rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text);
+    }
 
-footer {
-      	text-align: center;
-      	padding: 2vh 0;
-      	font-size: 1rem;
-      	color: white;
-}
+    .film-meta {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.25rem;
+    }
 
-/* ------------------------------------------------- */
+    /* --------- FOOTER --------- */
+    footer {
+      border-top: 1px solid var(--line);
+      margin-top: 4rem;
+      padding-top: 2rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
 
-@media (max-width: 640px) {
-	body {
-		overflow: visible;
-	}
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
 
-	.menu {
-		width: 100vw;
-	}
+    .enquiries a {
+      color: var(--text);
+    }
 
-	.about {
-		width: 100vw;
-	}
-}
+    .enquiries a:hover {
+      text-decoration: underline;
+    }
 
-</style>
+    /* --------- RESPONSIVE --------- */
+    @media (max-width: 600px) {
+      nav a {
+        margin-left: 1rem;
+      }
+
+      .logo img {
+        height: 40px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
   <header>
-    <img src="header.png" alt="Phosphenica logo" />
+    <div class="container header-inner">
+      <div class="logo">
+        <!-- Replace with your logo PNG -->
+        <img src="header.png" alt="Logo">
+      </div>
+
+      <nav>
+        <a href="manifesto.pdf">Manifesto</a>
+        <a href="https://striderrecs.bandcamp.com/">Strider Records</a>
+      </nav>
+    </div>
   </header>
 
+  <main class="container">
+    <section class="film-grid">
 
-<div class="pagepage">
-<div class="page">
+      <!-- FILM 01 -->
+      <a href="timefactory.html" class="film">
+        <div class="film-thumb">
+          <img src="timefactorythumb.jpg" alt="Film 01">
+        </div>
+        <div class="film-title">Time Factory</div>
+        <div class="film-meta">2025 · 3m52s</div>
+      </a>
 
-<div class="menu">
-<nav>
-<ul>
-	<li><a href="./index.html"><u>Home</u></a></li>
-	<li><a href="./manifesto.pdf">Manifesto</a></li>
-	<li><a href="https://striderrecs.bandcamp.com/">Strider Records</a></li>
-	<br>
-	<li><a href="./yellowends.html">Yellow Ends</a></li>
-	<li><a href="./timefactory.html">Time Factory</a></li>
-	<br><br>
-</ul>
-</nav>
-</div>
+      <!-- FILM 02 -->
+      <a href="yellowends.html" class="film">
+        <div class="film-thumb">
+          <img src="yellowendsthumb.png" alt="Film 02">
+        </div>
+        <div class="film-title">Yellow Ends</div>
+        <div class="film-meta">2025 · 42s</div>
+      </a>
 
-<div class="about">
-        <p>Phosphenica is an independent film organisation specialising in experimental and non-fiction film.
-        Our focus is on utilising cinema as a medium for truth and real social change.<br><br>
-        We envision a grassroots mode of film-<i>making</i> that challenges environmentally and socially destructive
-        industry norms.<br><br>
-        D.I.Y. everything.<br><br></p>
-</div>
+    </section>
+  </main>
 
-</div>
+  <footer>
+    <div class="container footer-inner">
 
-	<footer>
-		<p>Enquiries: <a href="mailto:phosphenicafilms@gmail.com">phosphenicafilms@gmail.com</a></p>
-	</footer>
-
-</div>
+      <div class="enquiries">
+        Enquiries: <a href="mailto:phosphenicafilms@gmail.com.com">phosphenicafilms@gmail.com</a>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
-
-
-
