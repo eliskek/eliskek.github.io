@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Phosphenica Films</title>
+  <title>Short Films</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
@@ -52,15 +52,31 @@
 
     /* --------- HEADER --------- */
     header {
-      border-bottom: 1px solid var(--line);
-      margin-bottom: 3rem;
-      background: var(--bg);
-    }
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 3rem;
+
+  background-size: cover;       /* use "repeat" if it's a seamless gif */
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* subtle overlay to keep text legible */
+  position: relative;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 15, 15, 0.75);
+  pointer-events: none;
+}
 
     .header-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
+	position: relative;
+  z-index: 1;
     }
 
     .logo img {
@@ -179,7 +195,7 @@
       <!-- FILM 01 -->
       <a href="timefactory.html" class="film">
         <div class="film-thumb">
-          <img src="timefactorythumb.JPG" alt="Film 01">
+          <img src="timefactorythumb.jpg" alt="Film 01">
         </div>
         <div class="film-title">Time Factory</div>
         <div class="film-meta">2025 · 3m52s</div>
@@ -206,7 +222,22 @@
     </div>
   </footer>
 
+<script>
+  (function () {
+    const backgrounds = [
+      "bg1.gif",
+      "bg2.gif",
+      "bg3.gif"
+    ];
+
+    const randomBg =
+      backgrounds[Math.floor(Math.random() * backgrounds.length)];
+
+    document.querySelector("header").style.backgroundImage =
+      `url("${randomBg}")`;
+  })();
+</script>
+
+
 </body>
 </html>
-
-
