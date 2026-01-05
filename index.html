@@ -33,6 +33,7 @@
       letter-spacing: 0.01em;
     }
 
+
     a {
       color: inherit;
       text-decoration: none;
@@ -61,6 +62,18 @@
 
   /* subtle overlay to keep text legible */
   position: relative;
+	animation: headerFade 1.2s ease-out;
+}
+
+@keyframes headerFade {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 header::after {
@@ -105,23 +118,30 @@ header::after {
     }
 
     .film {
-      border-top: 1px solid var(--line);
-      padding-top: 1rem;
-    }
+  transition: transform 0.25s ease;
+}
 
-    .film-thumb {
-      background: var(--panel);
-      overflow: hidden;
-    }
+.film-thumb {
+  background: var(--panel);
+  overflow: hidden;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
 
-    .film-thumb img {
-      width: 100%;
-      transition: opacity 0.35s ease;
-    }
+.film:hover .film-thumb {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
 
-    .film:hover img {
-      opacity: 0.8;
-    }
+.film-thumb img {
+  width: 100%;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.film:hover img {
+  opacity: 0.85;
+  transform: scale(1.02);
+}
+
 
     .film-title {
       margin-top: 0.75rem;
@@ -195,7 +215,7 @@ header::after {
       <!-- FILM 01 -->
       <a href="timefactory.html" class="film">
         <div class="film-thumb">
-          <img src="timefactorythumb.jpg" alt="Film 01">
+          <img src="timefactorythumb.JPG" alt="Film 01">
         </div>
         <div class="film-title">Time Factory</div>
         <div class="film-meta">2025 · 3m52s</div>
