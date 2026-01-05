@@ -52,16 +52,33 @@
 
     /* --------- HEADER --------- */
     header {
-      border-bottom: 1px solid var(--line);
-      margin-bottom: 3rem;
-      background: var(--bg);
-    }
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 3rem;
+
+  background-size: cover;       /* use "repeat" if it's a seamless gif */
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* subtle overlay to keep text legible */
+  position: relative;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 15, 15, 0.75);
+  pointer-events: none;
+}
 
     .header-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
+	position: relative;
+  z-index: 1;
     }
+
 
     .logo img {
       height: 48px;
@@ -301,6 +318,22 @@
     </div>
   </div>
 </footer>
+
+<script>
+  (function () {
+    const backgrounds = [
+      "bg1.gif",
+      "bg2.gif",
+      "bg3.gif"
+    ];
+
+    const randomBg =
+      backgrounds[Math.floor(Math.random() * backgrounds.length)];
+
+    document.querySelector("header").style.backgroundImage =
+      `url("${randomBg}")`;
+  })();
+</script>
 
 </body>
 </html>
