@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About — Elis Knight</title>
+  <link rel="icon" href="./logo.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #0f0f0f;
+      --panel: #151515;
+      --text: #e6e6e6;
+      --muted: #9a9a9a;
+      --line: #2a2a2a;
+      --hover: #ffffff;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      letter-spacing: 0.01em;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem;
+    }
+
+    /* HEADER */
+    header {
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 3rem;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      animation: headerFade 1.2s ease-out;
+    }
+
+    @keyframes headerFade {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 15, 15, 0.75);
+      pointer-events: none;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo img {
+      height: 48px;
+    }
+
+    nav a {
+      margin-left: 2rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    nav a:hover {
+      color: var(--hover);
+    }
+
+    /* PORTRAIT SECTION */
+    .portrait-section {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 3rem;
+      margin-bottom: 4rem;
+      align-items: start;
+    }
+
+    .portrait img {
+      width: 265px;
+      background: var(--panel);
+    }
+
+    .bio h1 {
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+
+    .bio p {
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+      font-size: 1rem;
+    }
+
+    /* FILM GRID */
+    .film-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .film-thumb {
+      background: var(--panel);
+      overflow: hidden;
+      transition: box-shadow 0.25s ease, transform 0.25s ease;
+    }
+
+    .film:hover .film-thumb {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .film-thumb img {
+      width: 100%;
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+
+    .film:hover img {
+      opacity: 0.85;
+      transform: scale(1.02);
+    }
+
+    .film-title {
+      margin-top: 0.75rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .film-meta {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.25rem;
+    }
+
+    /* SCROLL REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      margin-top: 4rem;
+      padding-top: 2rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 900px) {
+      .portrait-section {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">
+      <a href="index.html">
+        <img src="header.png" alt="Logo">
+      </a>
+    </div>
+
+    <nav>
+      <a href="manifesto.pdf">Manifesto</a>
+      <a href="https://striderrecs.bandcamp.com/">Strider Records</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- PORTRAIT + BIO -->
+  <section class="portrait-section reveal">
+    <div class="portrait">
+      <img src="elis-portrait.jpeg">
+    </div>
+
+    <div class="bio">
+      <h1 style="font-size: 300%">Elis Knight</h1>
+
+      <p>
+        I am a filmmaker, composer and sound artist working across experimental and
+        non-fiction forms. I am concerned with consciousness, labour,
+        ecology, and the political possibilities of small-scale cinema.
+      </p>
+
+      <p>
+        In my work I like to prioritise D.I.Y. production, analogue process, and slow,
+	methodical observation.
+      </p>
+
+      <p>
+        Alongside practical filmmaking, I have written essays on sustainability,
+        radical praxis, and the relationships between consciousness and images.
+      </p>
+    </div>
+  </section>
+
+  <!-- SELECTED WORK -->
+  <section class="film-grid reveal">
+
+    <a href="timefactory.html" class="film">
+      <div class="film-thumb">
+        <img src="timefactorythumb.JPG" alt="Time Factory">
+      </div>
+      <div class="film-title">Time Factory</div>
+      <div class="film-meta">2025 · 3m52s</div>
+    </a>
+
+    <a href="beyond-greenwashing.pdf" class="film" target="_blank">
+      <div class="film-thumb">
+        <img src="beyond-greenwashing.png" alt="Beyond Greenwashing">
+      </div>
+      <div class="film-title"><i>Beyond Greenwashing</i></div>
+      <div class="film-meta">Research · PDF</div>
+    </a>
+
+    <a href="yellowends.html" class="film">
+      <div class="film-thumb">
+        <img src="yellowendsthumb.png" alt="Yellow Ends">
+      </div>
+      <div class="film-title">Yellow Ends</div>
+      <div class="film-meta">2025 · 42s</div>
+    </a>
+
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div class="enquiries">
+      Enquiries:
+      <a href="mailto:phosphenicafilms@gmail.com">
+        phosphenicafilms@gmail.com
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    const backgrounds = ["bg1.gif", "bg2.gif", "bg3.gif"];
+    const randomBg = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+    document.querySelector("header").style.backgroundImage = `url("${randomBg}")`;
+  })();
+
+  const reveals = document.querySelectorAll(".reveal");
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  reveals.forEach(section => observer.observe(section));
+</script>
+
+</body>
+</html>
