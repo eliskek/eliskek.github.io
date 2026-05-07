@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Butterfly</title>
+  <link rel="icon" href="./logo.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    /* --------- CSS RESET --------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* --------- VARIABLES (DARK MODE) --------- */
+    :root {
+      --bg: #0f0f0f;
+      --panel: #151515;
+      --text: #e6e6e6;
+      --muted: #9a9a9a;
+      --line: #2a2a2a;
+      --hover: #ffffff;
+    }
+
+    /* --------- BASE --------- */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      letter-spacing: 0.01em;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img, video {
+      display: block;
+      max-width: 100%;
+    }
+
+    /* --------- LAYOUT --------- */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem;
+    }
+
+    /* --------- HEADER --------- */
+    header {
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 3rem;
+
+  background-size: cover;       /* use "repeat" if it's a seamless gif */
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* subtle overlay to keep text legible */
+  position: relative;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 15, 15, 0.75);
+  pointer-events: none;
+}
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+	position: relative;
+  z-index: 1;
+    }
+
+
+    .logo img {
+      height: 48px;
+      width: auto;
+    }
+
+    nav a {
+      margin-left: 2rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    nav a:hover {
+      color: var(--hover);
+    }
+
+    /* --------- FILM HEADER --------- */
+    .film-header {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .film-title {
+      font-size: 1.6rem;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+    }
+
+    .film-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* --------- FILM CONTENT --------- */
+    .film-content {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    /* --------- CLICKABLE THUMBNAIL --------- */
+    .film-thumbnail a {
+      position: relative;
+      display: block;
+      background: var(--panel);
+      cursor: pointer;
+      transition: transform 0.25s ease, filter 0.25s ease;
+    }
+
+    .film-thumbnail a:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.1);
+    }
+
+    /* Play icon */
+    .film-thumbnail a::after {
+      content: "▶";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 3rem;
+      color: rgba(255, 255, 255, 0.75);
+      pointer-events: none;
+      transition: color 0.25s ease, transform 0.25s ease;
+    }
+
+    .film-thumbnail a:hover::after {
+      color: rgba(255, 255, 255, 1);
+      transform: translate(-50%, -50%) scale(1.05);
+    }
+
+    .film-text {
+      max-width: 720px;
+    }
+
+    .film-description {
+      font-size: 0.95rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .film-description p {
+      margin-bottom: 1.5rem;
+    }
+
+    /* --------- CREDITS --------- */
+    .film-credits {
+      border-top: 1px solid var(--line);
+      padding-top: 1.5rem;
+      font-size: 0.8rem;
+    }
+
+    .credit {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      margin-bottom: 0.75rem;
+    }
+
+    .credit-role {
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .credit-name {
+      color: var(--text);
+    }
+
+    /* --------- FOOTER --------- */
+    footer {
+      border-top: 1px solid var(--line);
+      margin-top: 4rem;
+      padding-top: 2rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .enquiries a {
+      color: var(--text);
+    }
+
+    .enquiries a:hover {
+      text-decoration: underline;
+    }
+
+    /* --------- RESPONSIVE --------- */
+    @media (max-width: 900px) {
+      .film-content {
+        grid-template-columns: 1fr;
+      }
+
+      .film-thumbnail {
+        max-width: 420px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav a {
+        margin-left: 1rem;
+      }
+
+      .logo img {
+        height: 40px;
+      }
+
+      .film-title {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">
+      <a href="index.html">
+        <img src="header.png" alt="Logo">
+      </a>
+    </div>
+
+    <nav>
+      <a href="manifesto.pdf">Manifesto</a>
+      <a href="https://striderrecs.bandcamp.com/">Strider Records</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="film-header">
+    <h1 class="film-title">Butterfly</h1>
+    <div class="film-meta">2026 · 6m33s</div>
+  </section>
+
+  <section class="film-content">
+
+    <div class="film-thumbnail">
+      <a href="https://www.youtube.com/watch?v=PztvY8C6Eac" target="_blank">
+        <img src="butterflythumb.png">
+      </a>
+    </div>
+
+    <div class="film-text">
+
+      <div class="film-description">
+        <p>
+          <i>Butterfly</i> is a film I made using a number of experimental animation techniques,
+	  primarily manipulating strips of 35mm film, to explore light, shape, rapid movement,
+	  (re)birth, and the materiality of celluloid film.
+        </p>
+
+        <p>
+          I wanted to explore the direct and tactile relationship between image and material.
+	  I used various paints, inks, natural objects, and other tools to create a palette with
+	  which to examine, simply, how the light of a viewer/projector affects them. I also
+	  employed chance operations inspired by the <i>I Ching</i> in making this film.
+        </p>
+
+	<p>
+	
+	</p>
+      </div>
+
+      <div class="film-credits">
+        <div class="credit">
+          <div class="credit-role">Animator & Editor</div>
+          <div class="credit-name"><a href="./ek.html">Elis Knight</a></div>
+        </div>
+
+	<div class="credit">
+          <div class="credit-role">Composer</div>
+          <div class="credit-name">Jack Lewis</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div class="enquiries">
+      Enquiries:
+      <a href="mailto:phosphenicafilms@gmail.com">
+        phosphenicafilms@gmail.com
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    const backgrounds = [
+      "bg1.gif",
+      "bg2.gif",
+      "bg3.gif"
+    ];
+
+    const randomBg =
+      backgrounds[Math.floor(Math.random() * backgrounds.length)];
+
+    document.querySelector("header").style.backgroundImage =
+      `url("${randomBg}")`;
+  })();
+</script>
+
+</body>
+</html>
